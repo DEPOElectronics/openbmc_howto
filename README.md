@@ -24,6 +24,8 @@
 Управление выключением/выключением осуществляется по GPIO.
 
 # Установка своего Device Tree
+Замена ядра на своё нужно тогда, когда к плате статично подключено оборудование, отличающееся от стандартного.
+В качестве основы беру AST2500-evb
 
 1.	Заменить `KERNEL_DEVICETREE =` в файле `conf/machine/[system].conf` на свой файл .dtb
 2.	Добавить dts-файл по пути `recipes-kernel/linux/linux-aspeed/[name].dts`
@@ -93,7 +95,22 @@ do_patch:append () {
 
 ```
 
+## Добавление LED в ядро
 
+1.	Добавить `#include <dt-bindings/gpio/aspeed-gpio.h>` в DevTree
+2.	Добавить раздел leds в секцию `/ {..};`
+Пример:
+
+```
+leds {
+	compatible = "gpio-leds";
+	bmc_boot {
+		label = "platform:red:bmc_boot";
+		gpios = <&gpio ASPEED_GPIO(G, 1) GPIO_ACTIVE_HIGH>;
+		linux,default-trigger = "timer";
+	};
+};
+```
 
 # Конфигурация
 
