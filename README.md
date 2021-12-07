@@ -54,6 +54,11 @@ do_patch:append () {
 Зачастую удобно хранить DeviceTree не одним большим файлом, а в нескольких разделенных логически файлах. Для этого в главном файле .dts используется директива `#include "NewFile.dtsi"`.
 Так же новый файл необходимо добавить в `SRC_URI` файла `recipes-kernel/linux/linux-aspeed_%.bbappend`
 
+## GPIO
+
+### Ручное управление
+Информацию о линиях GPIO можно Вручную можно управлять линиями GPIO с помощью команд `gpioget`. В случае выходной линии задать состояние с помощью `gpioset`. Получить информацию можно с помощью команды `gpioinfo`
+
 ## Переименование линий gpio
 
 Для переименования линий gpio требуется в DeviceTree включить следующий блок
@@ -105,11 +110,59 @@ do_patch:append () {
 leds {
 	compatible = "gpio-leds";
 	bmc_boot {
-		label = "platform:red:bmc_boot";
+		label = "front_id";
 		gpios = <&gpio ASPEED_GPIO(G, 1) GPIO_ACTIVE_HIGH>;
 		linux,default-trigger = "timer";
 	};
 };
+```
+После того как LED добавлен в ядро. Доступ через программы управления GPIO до него недоступен, но зато этот светодиод появляется по адресу `/sys/class/leds/`.
+
+*	Посмотреть текущее состояние `cat brightness`
+*	Зажечь светодиод `echo 1 > brightness`
+*	Погасить светодиод `echo 0 > brightness`
+*	Возможные типы мигания `cat trigger`
+*	Задать тип мигания `echo heartbeat > trigger`
+
+## Добавление стандартных LED
+
+Управлением LED занимается phosphor-led-manager. Для того чтобы заработали стандартные светодиоды типа ID и fault достаточно назвать их в соответствии с [Name](https://github.com/openbmc/phosphor-led-manager/blob/master/example/led-group-config.json) в конфиге. Либо поменять конфиг.
+
+## Добавление LED со своим именем
+Есть вариант добавления с помощью переопределения менеджера phosphor-led-manager и использования файла LED.yaml. Либо включения use-json в файле .bbappend
+
+recipes-phosphor/leds/phosphor-led-manager_%.bbappend
+
+```
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+
+SRC_URI += "file://led-group-config.json"
+
+PACKAGECONFIG:append = " use-json use-lamp-test"
+
+do_install:append() {
+        install -m 0644 ${WORKDIR}/led-group-config.json ${D}${datadir}/phosphor-led-manager/
+}
+```
+
+recipes-phosphor/leds/phosphor-led-manager/led-group-config.json
+
+```
+{
+    "leds": [
+        {
+            "group": "enclosure_identify",
+            "members": [
+                {
+                    "Name": "identify",
+                    "Action": "Blink",
+                    "DutyOn": 50,
+                    "Period": 1000
+                }
+            ]
+        }
+    ]
+}
 ```
 
 # Конфигурация
@@ -119,6 +172,23 @@ leds {
 1.	Создать файл `recipes-kernel/linux/linux-aspeed/{MACHINE}.cfg`
 2.	В файл записать нужный конфиг. Например `CONFIG_PMBUS=y` 
 3.	Добавить этот файл в `linux-aspeed_%.bbappend` уровнем выше в раздел `SRC_URI`
+
+# I2C
+
+## Добавление линии в DevTree
+В .dts файл добавить нужную линию
+
+```
+&i2c2 {
+	status = "okay";
+};
+
+```
+
+## Блок питания
+
+1.	Добавить в ядро нужную линию I2c
+2.	В конфигурацию добавить 
 
 # Управление вентилятором
 
