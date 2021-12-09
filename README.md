@@ -100,7 +100,7 @@ do_patch:append () {
 
 ```
 
-## Добавление LED в ядро
+## Добавление LED в DeviceTree
 
 1.	Добавить `#include <dt-bindings/gpio/aspeed-gpio.h>` в DevTree
 2.	Добавить раздел leds в секцию `/ {..};`
@@ -163,6 +163,36 @@ recipes-phosphor/leds/phosphor-led-manager/led-group-config.json
         }
     ]
 }
+```
+
+## Добавление GPIO кнопки 
+
+### Добавление кнопки в DeviceTree
+1.	Добавить `#include <dt-bindings/gpio/aspeed-gpio.h>` в DevTree
+2.	Добавить раздел gpio-keys в секцию `/ {..};`
+Пример:
+
+```
+gpio-keys {
+		compatible = "gpio-keys";
+
+		id-button {
+			label = "id-button";
+			gpios = <&gpio ASPEED_GPIO(N, 3) GPIO_ACTIVE_HIGH>;
+			linux,code = <ASPEED_GPIO(N, 3)>;
+		};
+
+	};
+
+```
+После того как кнопка добавлена в дерево устройств, она начинает писать информацию по адресу `cat /dev/input/by-path/platform-gpio-keys-event`.
+
+### Добавление реакции на кнопку
+
+По адресу `recipes-phosphor/gpio` создать сервис id-button (название по-смыслу), который будет реагировать на нажатие этой кнопки. Создать `recipes-phosphor/packagegroups/packagegroup-obmc-apps.bbappend` 
+
+```
+RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 ```
 
 # Конфигурация
