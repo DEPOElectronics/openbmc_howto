@@ -225,3 +225,17 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # Добавить web-интерфейс
 
 В минимальный образ уже добавлен Web-интерфейс. Для этого, в образ системы `/recipes-phosphor/images/obmc-phosphor-image.bbappend` в `OBMC_IMAGE_EXTRA_INSTALL:append` добавлена строка `webui-vue`
+
+# Удалить eth1
+
+Из DevTree удалить блок
+
+```
+&mac1 {
+       status = "okay";
+
+       pinctrl-names = "default";
+       pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
+};
+
+```
