@@ -299,17 +299,20 @@ baud = 115200
 local-tty = ttyS0
 ```
 
+## Статус соединения в Web-интерфейсе
+Корректный статус будет работать только после того как настроить статус питания хоста
+
 # IKVM
 
 Для того чтобы заработал IKVM в браузере в DevTree ядра в раздел `reserved-memory` должны быть добавлены разделы (возможно не все, надо тестировать):
 
-*	vga_memory
-*	flash_memory
-*	coldfire_memory
-*	video_engine_memory
+*	vga\_memory
+*	flash\_memory
+*	coldfire\_memory
+*	video\_engine\_memory
 
 Например:
-
+ave not configured the versi
 ```
 	reserved-memory {
 		#address-cells = <1>;
