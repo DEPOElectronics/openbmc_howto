@@ -1,0 +1,59 @@
+# Serial on LAN (SOL)
+
+## Вручную
+
+За SOL отвечает программа obmc-console. Её настройки находятся по адресу /etc/obmc-console/server.\[tty№\].conf.
+По-умолчанию используется VUART. Но можно вручную создать файл и запустить сервер
+
+```
+touch /etc/obmc-console/server.ttyS0.conf 
+echo "baud = 115200" > /etc/obmc-console/server.ttyS0.conf
+systemctl start obmc-console@ttyS0
+```
+Можно запускать сервер без сервиса с помощью `obmc-console-server`. Для проверки можно использовать `obmc-console-client`
+
+## Добавление в образ
+[Работа с образом](dev_tree.md)
+
+1)	Добавить в DevTree
+
+```
+&uart1 {
+	//Host Console
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_txd1_default
+		     &pinctrl_rxd1_default>;
+};
+
+```
+Что значат эти магические буковки я не ведаю
+
+Добавить в настройку obmc-console использование ttyS0
+
+recipes-phosphor/console/obmc-console_%.bbappend
+	
+```
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}/${MACHINE}:"
+OBMC_CONSOLE_HOST_TTY = "ttyS0"
+
+SRC_URI:remove = "file://${BPN}.conf"
+SRC_URI += "file://server.ttyS0.conf"
+
+do_install:append() {
+        # Remove upstream-provided configuration
+        rm -rf ${D}${sysconfdir}/${BPN}
+
+        # Install the server configuration
+        install -m 0755 -d ${D}${sysconfdir}/${BPN}
+        install -m 0644 ${WORKDIR}/*.conf ${D}${sysconfdir}/${BPN}/
+
+}
+```
+
+recipes-phosphor/console/obmc-console/${ИМЯ платы}/server.ttyS0.conf
+
+```
+baud = 115200
+local-tty = ttyS0
+```
