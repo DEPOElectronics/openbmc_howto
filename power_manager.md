@@ -1,4 +1,7 @@
 # Управление питанием
+Есть разные программы для управлением питанием. Наиболее часто используются x86-power-control и phosphor-state-manager. Phosphor State Manager стаивтся по-умолчанию, для того иного надо в .conf файле указать
+VIRTUAL-RUNTIME_obmc-host-state-manager ?= "x86-power-control"
+VIRTUAL-RUNTIME_obmc-chassis-state-manager ?= "x86-power-control"
 ## Сервисы
 Для включения сервера необходимо создать сервисы [systemd](https://github.com/openbmc/docs/blob/master/architecture/openbmc-systemd.md) которые включают, выключают (мягко и жестко), перезагружают сервер.
 Для того чтобы данные сервисы вызывались необходимо ссылки на них поместить в папку /lib/systemd/system/(цель).requires (папку возможно необходимо создать) для следующих целей:

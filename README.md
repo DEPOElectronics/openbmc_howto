@@ -98,3 +98,4 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 
 
 # [Управление питанием](power_manager.md)
+# [Устройства на плате](inventory)
