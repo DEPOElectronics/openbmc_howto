@@ -1,5 +1,5 @@
 # Управление питанием
-Есть разные программы для управлением питанием. Наиболее часто используются x86-power-control и phosphor-state-manager. Phosphor State Manager стаивтся по-умолчанию, для того иного надо в .conf файле указать
+Есть разные программы для управлением питанием. Наиболее часто используются x86-power-control и phosphor-state-manager. Phosphor State Manager ставится по-умолчанию, для того иного надо в .conf файле указать
 VIRTUAL-RUNTIME_obmc-host-state-manager ?= "x86-power-control"
 VIRTUAL-RUNTIME_obmc-chassis-state-manager ?= "x86-power-control"
 ## Сервисы

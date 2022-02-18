@@ -164,6 +164,9 @@ d 225.75
 # Остановка сервиса
 Для остановки сервиса:
 `systemctl stop xyz.openbmc_project.EntityManager.service`
+
+#  [Добавление платы](em_board)
+# [Добавление блока питания](em_psu)
 # Проблемы
 entity-manager работает только когда по dbus несколько секунд не будет приходить изменений типа `NameOwnerChanged`
 Проверить можно вызвал команду:
