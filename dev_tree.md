@@ -28,3 +28,18 @@ do_patch:append () {
 
 Зачастую удобно хранить DeviceTree не одним большим файлом, а в нескольких разделенных логически файлах. Для этого в главном файле .dts используется директива `#include "NewFile.dtsi"`.
 Так же новый файл необходимо добавить в `SRC_URI` файла `recipes-kernel/linux/linux-aspeed_%.bbappend`
+
+## Подключение i2c RTC
+Пример:
+```
+&i2c2 {
+	/* i2c_pmbus */
+	status = "okay";
+
+	rtc@6f {
+		compatible = "microchip,mcp7941x";
+		reg = <0x6f>;
+		interrupts = <110>;
+	};
+};
+```

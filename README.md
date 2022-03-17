@@ -78,6 +78,7 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 
 # Отладка
 [SDK проекта](sdk.md)
+[Сборка](build.md) программы для OpenBmc
 
 
 # [Управление питанием](power_manager.md)
