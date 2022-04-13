@@ -1,12 +1,20 @@
 # Создать SDK проекта
 
-Building the OpenBMC SDK
-
-Looking for a way to compile your programs for 'ARM' but you happen to be running on a 'PPC' or 'x86' system? You can build the sdk receive a fakeroot environment.
-
+SDK проекта нужен для возможности ручной сборки программ для OpenBmc с целью их отладки
+1) Настроить окружение OpenBMC
+```
+cd ~/openbmc
+. setup MyProject
+```
+2) Создание дистрибьютива SDK
+```
 $ bitbake -c populate_sdk obmc-phosphor-image
+```
+3) Установка SDK на компьютер
+```
 $ ./tmp/deploy/sdk/openbmc-phosphor-glibc-x86_64-obmc-phosphor-image-armv5e-toolchain-2.1.sh
-
-Follow the prompts. After it has been installed the default to setup your env will be similar to this command
-
+```
+4) Использование окружения SDK
+```
 . /opt/openbmc-phosphor/2.1/environment-setup-armv5e-openbmc-linux-gnueabi
+```

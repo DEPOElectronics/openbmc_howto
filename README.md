@@ -43,9 +43,6 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 
 # [I2C](i2c)
 
-# Добавить web-интерфейс
-
-В минимальный образ уже добавлен Web-интерфейс. Для этого, в образ системы `/recipes-phosphor/images/obmc-phosphor-image.bbappend` в `OBMC_IMAGE_EXTRA_INSTALL:append` добавлена строка `webui-vue`
 
 # Удалить eth1
 
@@ -69,7 +66,9 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 
 # WEB
 
-## Включить Web-интерфейс
+## Добавить web-интерфейс
+
+В минимальный образ уже добавлен Web-интерфейс. Для этого, в образ системы `/recipes-phosphor/images/obmc-phosphor-image.bbappend` в `OBMC_IMAGE_EXTRA_INSTALL:append` добавлена строка `webui-vue`
 
 
 ## Включить RedFish
@@ -79,7 +78,9 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # Отладка
 [SDK проекта](sdk.md)
 [Сборка](build.md) программы для OpenBmc
+Для очистки программы при сборке в Bitbake `bitabke {program} -c cleanall`
 
 
 # [Управление питанием](power_manager.md)
 # [Устройства на плате](inventory)
+# [Драйверы](drivers/README.md)
