@@ -61,4 +61,6 @@ gpio-keys {
 	};
 
 ```
-После того как кнопка добавлена в дерево устройств, она начинает писать информацию по адресу `cat /dev/input/by-path/platform-gpio-keys-event`.
+После того как кнопка добавлена в дерево устройств, она начинает писать информацию по адресу `/dev/input/by-path/platform-gpio-keys-event`.
+Почему-то начались проблемы с platform-gpio-keys-event. И **[phosphor-gpio-monitor](https://github.com/openbmc/phosphor-gpio-monitor)**  в режиме работы с отдельными сервисами. В итоге без добавления gpio-keys секции. Использую [phosphor-gpio-monitor](phosphor-gpio-monitor) в multi режиме
+
