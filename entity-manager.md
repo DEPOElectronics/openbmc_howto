@@ -182,3 +182,5 @@ entity-manager работает только когда по dbus несколь
 ```
 dbus-monitor --system type='signal',sender='org.freedesktop.DBus',member='NameOwnerChanged'"
 ```
+
+## [Dbus-sensor](https://github.com/cycleviki/OpenBMCDoc/blob/master/dbus-sensors/dbus-sensors.md)
