@@ -181,4 +181,4 @@ entity-manager работает только когда по dbus несколь
 Проверить можно вызвал команду:
 ```
 dbus-monitor --system type='signal',sender='org.freedesktop.DBus',member='NameOwnerChanged'"
- ```
+```
