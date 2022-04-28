@@ -85,3 +85,5 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [Управление вентиляторами](fan_control)
 # [Датчики на плате](inventory)
 # [Драйверы](drivers/README.md)
+# [Логирование](event_log)
+# [Запуск в qemu](qemu)
