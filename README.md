@@ -75,15 +75,12 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 
 Добавить `-Dredfish-dbus-log=enabled` в ``EXTRA_OEMESON:append` в вашем слое `bmcweb_%.bbappend``
 
-# Отладка
-[SDK проекта](sdk.md)
-[Сборка](build.md) программы для OpenBmc
-Для очистки программы при сборке в Bitbake `bitabke {program} -c cleanall`
-
-
+# [Отладка](debug)
 # [Управление питанием](power_manager.md)
 # [Управление вентиляторами](fan_control)
 # [Датчики на плате](inventory)
 # [Драйверы](drivers/README.md)
 # [Логирование](event_log)
 # [Запуск в qemu](qemu)
+# Ядро
+Посмотреть параметры ядра внутри BMC `zcat /proc/config.gz`
