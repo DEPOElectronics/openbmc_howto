@@ -38,7 +38,7 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 2.	В файл записать нужный конфиг. Например `CONFIG_PMBUS=y` 
 3.	Добавить этот файл в `linux-aspeed_%.bbappend` уровнем выше в раздел `SRC_URI`
 
-# [I2C](i2c)
+# [I2C](i2c.md)
 
 
 # Удалить eth1
@@ -72,16 +72,16 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 
 Добавить `-Dredfish-dbus-log=enabled` в ``EXTRA_OEMESON:append` в вашем слое `bmcweb_%.bbappend``
 
-# [Отладка](debug)
+# [Отладка](debug.md)
 # [Управление питанием](power_manager.md)
-# [Управление вентиляторами](fan_control)
-# [Датчики на плате](inventory)
+# [Управление вентиляторами](fan_control.md)
+# [Датчики на плате](inventory.md)
 # [Драйверы](drivers/README.md)
-# [Логирование](event_log)
-# [Запуск в qemu](qemu)
-# [Redfish](redfish)
+# [Логирование](event_log.md)
+# [Запуск в qemu](qemu.md)
+# [Redfish](redfish.md)
 # Ядро
 Посмотреть параметры ядра внутри BMC `zcat /proc/config.gz`
 # [Версия BMC](version.md)
-# [Выбор файловой системы](ubifs)
-# [Добавление резервной флэш](reserved_flash)
+# [Выбор файловой системы](ubifs.md)
+# [Добавление резервной флэш](reserved_flash.md)
