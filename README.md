@@ -1,6 +1,3 @@
-# Начальный образ
-
-В качестве начального образа взят минимальный ast-2500 [образ](https://github.com/gluhow/openbmc/tree/minimum/meta-sample/meta-ast2500-min)
 
 *	Ast2500
 *	64Мб flash
@@ -82,5 +79,9 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [Драйверы](drivers/README.md)
 # [Логирование](event_log)
 # [Запуск в qemu](qemu)
+# [Redfish](redfish)
 # Ядро
 Посмотреть параметры ядра внутри BMC `zcat /proc/config.gz`
+# [Версия BMC](version.md)
+# [Выбор файловой системы](ubifs)
+# [Добавление резервной флэш](reserved_flash)

@@ -7,3 +7,6 @@
 ```
 zcat /proc/config.gz | grep 
 ```
+
+##  Измененные файлы
+`/run/initramfs/rw/cow`

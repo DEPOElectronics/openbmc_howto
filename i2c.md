@@ -26,3 +26,20 @@ i2c dump -y y 58
 
 # Добавление микросхемы RTC
 Для добавления микросхемы RTC её достаточно описать в [DeviceTree](dev_tree). После этого время будет браться с неё при загрузке BMC автоматически.
+
+# Работа с шиной
+Список доступных шин
+```
+i2cdetect -l
+i2c-2	i2c       	1e78a0c0.i2c-bus                	I2C adapter
+i2c-3	i2c       	1e78a100.i2c-bus                	I2C adapter
+i2c-4	i2c       	1e78a140.i2c-bus                	I2C adapter
+i2c-5	i2c       	1e78a180.i2c-bus                	I2C adapter
+i2c-6	i2c       	1e78a1c0.i2c-bus                	I2C adapter
+i2c-7	i2c       	1e78a300.i2c-bus                	I2C adapter
+i2c-9	i2c       	1e78a380.i2c-bus                	I2C adapter
+
+```
+
+# Отключение/подключение шины во время работы
+https://translated.turbopages.org/proxy_u/en-ru.ru.835dd390-629716b4-9dca5844-74722d776562/https/lwn.net/Articles/143397/
