@@ -75,3 +75,11 @@ fw_printenv
 fw_setenv
 ```
 Необходимо чтобы u-boot и система хранили данные в одном месте. Настройка для системы в `/ets/fs_env.config`. Для u-boot в переменной `mtdparts`. Для корректной работы пришлось поменять!
+
+# Overlay
+Для того чтобы можно было записывать каталоги, которые по-умолчанию доступны только для чтения используется Overlay```
+```
+mkdir -p /tmp/persist/usr
+mkdir -p /tmp/persist/work/usr
+mount -t overlay -o lowerdir=/usr,upperdir=/tmp/persist/usr,workdir=/tmp/persist/work/usr overlay /usr
+```
