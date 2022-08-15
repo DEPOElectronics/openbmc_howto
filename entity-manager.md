@@ -184,3 +184,5 @@ dbus-monitor --system type='signal',sender='org.freedesktop.DBus',member='NameOw
 ```
 
 ## [Dbus-sensor](https://github.com/cycleviki/OpenBMCDoc/blob/master/dbus-sensors/dbus-sensors.md)
+# Альтернативы
+Есть устаревший phosphor-inventory-manager
