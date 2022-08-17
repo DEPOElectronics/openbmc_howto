@@ -20,8 +20,6 @@
 # [GPIO](gpio.md)
 # [LED](led.md)
 
-
-
 ### Добавление реакции на кнопку
 
 По адресу `recipes-phosphor/gpio` создать сервис id-button (название по-смыслу), который будет реагировать на нажатие этой кнопки. Создать `recipes-phosphor/packagegroups/packagegroup-obmc-apps.bbappend` 
@@ -55,9 +53,6 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 
 ```
 
-## Статус соединения в Web-интерфейсе
-Корректный статус будет работать только после того как настроить статус питания хоста
-
 # [IKVM](ikvm.md)
 # [Serial Over Lan SOL](sol.md)
 
@@ -85,3 +80,4 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [Версия BMC](version.md)
 # [Выбор файловой системы](ubifs.md)
 # [Добавление резервной флэш](reserved_flash.md)
+# [Обновление прошивки хоста](host_firmware_update.md)
