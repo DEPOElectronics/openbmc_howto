@@ -81,3 +81,4 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [Выбор файловой системы](ubifs.md)
 # [Добавление резервной флэш](reserved_flash.md)
 # [Обновление прошивки хоста](host_firmware_update.md)
+# [Цифровая подпись образа](signing.md)
