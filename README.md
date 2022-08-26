@@ -82,3 +82,4 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [Добавление резервной флэш](reserved_flash.md)
 # [Обновление прошивки хоста](host_firmware_update.md)
 # [Цифровая подпись образа](signing.md)
+# [BitBake](bitbake.md) 
