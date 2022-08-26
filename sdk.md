@@ -16,5 +16,5 @@ $ ./tmp/deploy/sdk/openbmc-phosphor-glibc-x86_64-obmc-phosphor-image-armv5e-tool
 ```
 4) Использование окружения SDK
 ```
-. /opt/openbmc-phosphor/2.1/environment-setup-armv5e-openbmc-linux-gnueabi
+. sdk/environment-setup-armv5e-openbmc-linux-gnueabi
 ```
