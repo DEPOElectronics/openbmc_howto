@@ -1,3 +1,4 @@
+
 # Цифровая подпись образа
 По-умолчанию каждый образ подписывается "открытой" цифровой подписью, закрытый ключ которой находится в `meta-phosphor/recipes-phosphor/flash/files/OpenBMC.priv`.
 Подпись будет записываться  в образ если включить флаг `verify_signature` в пакете `phosphor-software-manager`
