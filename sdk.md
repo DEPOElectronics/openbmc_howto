@@ -18,3 +18,6 @@ $ ./tmp/deploy/sdk/openbmc-phosphor-glibc-x86_64-obmc-phosphor-image-armv5e-tool
 ```
 . sdk/environment-setup-armv5e-openbmc-linux-gnueabi
 ```
+
+Для просмотра кода удобно использовать
+https://grok.openbmc.org/

@@ -83,3 +83,10 @@ mkdir -p /tmp/persist/usr
 mkdir -p /tmp/persist/work/usr
 mount -t overlay -o lowerdir=/usr,upperdir=/tmp/persist/usr,workdir=/tmp/persist/work/usr overlay /usr
 ```
+
+Для lib
+```
+mkdir -p /tmp/persist/lib
+mkdir -p /tmp/persist/work/lib
+mount -t overlay -o lowerdir=/lib,upperdir=/tmp/persist/lib,workdir=/tmp/persist/work/lib overlay /lib
+```

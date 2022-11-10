@@ -1,4 +1,3 @@
-
 *	Ast2500
 *	64Мб flash
 *	meta-bytedance/g220a DevTree 
@@ -6,9 +5,10 @@
 *	static mtd
 
 
-Создание образа под свою плату
+Создание образа под свою плату:
+Я использовал в качестве основы слой из ветки minimum
 
-1.	Скопировать  meta-depo/meta-min
+1.	Скопировать  meta-sample/ast2500-min
 2.	сonf
 	1.	`bblayers.conf.sample` переименовать слой
     2.	`BBFILE_COLLECTIONS += "mylayer"`
@@ -83,3 +83,5 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [Обновление прошивки хоста](host_firmware_update.md)
 # [Цифровая подпись образа](signing.md)
 # [BitBake](bitbake.md) 
+# [Настройки](phosphor-settings)
+В том числе удаление настройки загрузки хоста
