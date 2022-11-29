@@ -85,3 +85,5 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [BitBake](bitbake.md) 
 # [Настройки](phosphor-settings)
 В том числе удаление настройки загрузки хоста
+# [Частые проблемы](bugs)
+# [Автоматическое тестирование](test)

@@ -180,7 +180,7 @@ rm -f /var/configuration/system.json &&systemctl restart xyz.openbmc_project.Ent
 entity-manager работает только когда по dbus несколько секунд не будет приходить изменений типа `NameOwnerChanged`
 Проверить можно вызвал команду:
 ```
-dbus-monitor --system type='signal',sender='org.freedesktop.DBus',member='NameOwnerChanged'"
+dbus-monitor --system type='signal',sender='org.freedesktop.DBus',member='NameOwnerChanged'
 ```
 
 ## [Dbus-sensor](https://github.com/cycleviki/OpenBMCDoc/blob/master/dbus-sensors/dbus-sensors.md)

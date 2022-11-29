@@ -13,5 +13,10 @@
 ```
 gen-bios-tar -m dacn469535003v2 -o ~/bin/boot.tar.gz -v rev0 ~/projects/pns/image/boot.bin
 ```
+В случае если используется подпись, то
+```
+gen-bios-tar -m dacn469535003v2 -o ~/bin/boot.tar.gz -v rev0 ~/projects/pns/image/boot.bin
+```
+
 Имя машины должно совпадать с именем машины bmc
 Добавление нескольких файлов на данный момент не поддерживается скриптом, надо будет дописать
