@@ -42,4 +42,7 @@ i2c-9	i2c       	1e78a380.i2c-bus                	I2C adapter
 ```
 
 # Отключение/подключение шины во время работы
-https://translated.turbopages.org/proxy_u/en-ru.ru.835dd390-629716b4-9dca5844-74722d776562/https/lwn.net/Articles/143397/
+```
+echo -n "1e78a140.i2c-bus" > /sys/bus/platform/drivers/aspeed-i2c-bus/unbind
+echo -n "1e78a1c0.i2c-bus" > /sys/bus/platform/drivers/aspeed-i2c-bus/bind
+```
