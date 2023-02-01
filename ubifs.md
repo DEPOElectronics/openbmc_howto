@@ -1,4 +1,4 @@
-r# Переход со статичной ФС на UBIFS
+# Переход со статичной ФС на UBIFS
 ## Для чего нужен переход
 1) По-умолчанию работа с 2 микросхемами памяти - основной и резервной. И возможность загрузиться с резервной
 2) Объем памяти на флешке ограничен размером флешки, а не размером раздела RO
@@ -7,6 +7,7 @@ r# Переход со статичной ФС на UBIFS
 ```
 require conf/distro/include/phosphor-ubi.inc
 ```
+Данная зависимость должна быть включена до `obmc-bsp-common.inc`
 ## U-boot 2016
 В conf файле если выбран u-boot 2019, то надо перейти назад на 2016
 ```
@@ -38,7 +39,16 @@ PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils-aspeed"
 
 ```
 
-## Тома UBI
+## Модули ядра для работы с UBI
+Т.к. модули ядра были вынесены, то теперь для того чтобы ядро умело работать с этим разделом, нужно включить их отдельно в recipes-kernel/linux/linux-aspeed/~~kernel~~.cfg
+
+```
+CONFIG_MTD_UBI=y
+CONFIG_MTD_UBI_FASTMAP=y
+CONFIG_MTD_UBI_BLOCK=y
+CONFIG_UBIFS_FS=y
+```
+# Тома UBI
 `/proc/mtd` - соответствие тома и разделом mtd0 - bmc и т.д
 `/dev/mdtX` - расположение разделов
 `/dev/mtd/` - именованные ссылки на них
@@ -49,7 +59,7 @@ PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils-aspeed"
 dd if=/dev/mtd/bmc of=/tmp/bmc
 flashcp /tmp/bmc /dev/mtd/alt-bmc
 ```
-## U-boot
+# U-boot
 Для того чтобы boot работал с разделами UBI нужна программа ubi в u-boot
 `printenv` - отобразить переменные окружения
 Для загрузки интересуют переменные
@@ -64,7 +74,7 @@ root=/dev/ubiblock0_3
 ubi part obmc-ubi
 ubi info layout
 ```
-## Задать значение переменных
+# Задать значение переменных
 Для того чтобы задать новое значение через U-BOOT
 `setenv <переменная> <значение>`
 сохранить `saveenv`
@@ -75,7 +85,18 @@ fw_printenv
 fw_setenv
 ```
 Необходимо чтобы u-boot и система хранили данные в одном месте. Настройка для системы в `/ets/fs_env.config`. Для u-boot в переменной `mtdparts`. Для корректной работы пришлось поменять!
-
+# Вручную загрузиться с альтернативной прошивкой
+Посмотреть варианты ядра kernel-*
+```
+ubi part obmc-ubi
+ubi info layout
+```
+Задать нужное ядро и загрузиться
+```
+setenv kernelname kernel-bbb3b612
+boot
+```
+ 
 # Overlay
 Для того чтобы можно было записывать каталоги, которые по-умолчанию доступны только для чтения используется Overlay```
 ```
