@@ -15,7 +15,7 @@ gen-bios-tar -m dacn469535003v2 -o ~/bin/boot.tar.gz -v rev0 ~/projects/pns/imag
 ```
 В случае если используется подпись, то
 ```
-gen-bios-tar -m dacn469535003v2 -o ~/bin/boot.tar.gz -v rev0 ~/projects/pns/image/boot.bin
+gen-bios-tar -m dacn469535003v2 -o ~/bin/boot.tar.gz -v rev0 -s ~/projects/sign/key.pem ~/projects/pns/image/boot.bin
 ```
 
 Имя машины должно совпадать с именем машины bmc
