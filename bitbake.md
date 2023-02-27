@@ -1,7 +1,7 @@
 # Bitbake
 ## Скачать все
 `bitbake obmc-phosphor-image --runall=fetch`
-## Проверка значения переменно
+## Проверка значения переменной
 `bitbake obmc-phosphor-image -e | grep <Variable>`
 ## Очистить пакет для пересборки или из-за ошибок
 `bitbake obmc-phosphor-image -c cleanall`
