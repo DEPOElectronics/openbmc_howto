@@ -8,11 +8,11 @@ cd ~/openbmc
 ```
 2) Создание дистрибьютива SDK
 ```
-$ bitbake -c populate_sdk obmc-phosphor-image
+bitbake -c populate_sdk obmc-phosphor-image
 ```
 3) Установка SDK на компьютер
 ```
-$ ./tmp/deploy/sdk/openbmc-phosphor-glibc-x86_64-obmc-phosphor-image-armv5e-toolchain-2.1.sh
+./tmp/deploy/sdk/openbmc-phosphor-glibc-x86_64-obmc-phosphor-image-armv5e-toolchain-2.1.sh
 ```
 4) Использование окружения SDK
 ```

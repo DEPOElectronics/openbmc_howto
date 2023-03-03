@@ -27,6 +27,7 @@ VIRTUAL-RUNTIME_obmc-chassis-state-manager ?= "x86-power-control"
 
 ## Реакция на команды
 При обнаружении изменения dbus PSM запускает следующие цели:
+
 |Dbus|Systemd|
 |--|--|
 |xyz.openbmc_project.State.Host.Transition.On|obmc-host-start@{}.target|
