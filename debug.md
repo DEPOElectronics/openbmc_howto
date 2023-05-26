@@ -16,3 +16,9 @@ zcat /proc/config.gz | grep
 
 # Просмотр исходников
 Зачастую исходники удобно смотреть через https://grok.openbmc.org
+
+# Пример
+```
+#include <iostream>
+std::cout<<"Hello World" <<std::endl;
+```

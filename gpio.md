@@ -64,3 +64,30 @@ gpio-keys {
 После того как кнопка добавлена в дерево устройств, она начинает писать информацию по адресу `/dev/input/by-path/platform-gpio-keys-event`.
 Почему-то начались проблемы с platform-gpio-keys-event. И **[phosphor-gpio-monitor](https://github.com/openbmc/phosphor-gpio-monitor)**  в режиме работы с отдельными сервисами. В итоге без добавления gpio-keys секции. Использую [phosphor-gpio-monitor](phosphor-gpio-monitor) в multi режиме
 
+## Ручное управление GPIO
+При необходимости вручную управлять gpio, можно воспользоваться sysfs. Сначала нужно найти номер пина. Для этого нужно к номеру базы добавить номер линии.
+
+```
+# ls /sys/class/gpio/  
+export       gpiochip792  unexport
+```
+gpiochip792 - база 792
+```
+# gpiofind BMC_PWR_BMC
+gpiochip0 208
+```
+линия 208
+Значит номер пина 792+208=1000
+```
+# echo 1000 > /sys/class/gpio/export 
+```
+После этого будет создан каталог `/sys/class/gpio/gpio1000`
+
+Изменить направление gpio
+```
+echo in > /sys/class/gpio/gpio1000/direction
+echo out > /sys/class/gpio/gpio1000/direction
+```
+
+Задать значение `echo 1 > /sys/class/gpio/gpio1000/value`
+Считать значение `cat /sys/class/gpio/gpio1000/value`

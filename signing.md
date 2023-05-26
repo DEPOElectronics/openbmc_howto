@@ -32,4 +32,4 @@ busctl set-property xyz.openbmc_project.Software.BMC.Updater /xyz/openbmc_projec
 ```
 busctl get-property xyz.openbmc_project.Software.BMC.Updater /xyz/openbmc_project/software xyz.openbmc_project.Control.FieldMode FieldModeEnabled
 ```
-Для того чтобы этот режим был выставлен автоматом, надо в переменную окружения u-boot добавить `fieldmode=true`. На данный момент phosphor-bmc-mgmt имеет баг, и ищет данную переменную по адресу  /dev/mtd/u-boot-env.
+Для того чтобы этот режим был выставлен автоматом, надо в переменную окружения u-boot добавить `fieldmode=true`.

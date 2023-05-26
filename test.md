@@ -29,3 +29,8 @@ robot --argumentfile test_lists/dacn469535003v2_shorttest .
 ```
 
 При одновременном использовании  противоречивых параметров, приоритет за последним
+
+Удобнее запускать через tox
+```
+tox -e default -- --argumentfile test_lists/dacn469535003v2_arg --argumentfile test_lists/dacn469535003v2_shorttest ./
+```

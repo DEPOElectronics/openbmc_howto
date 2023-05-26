@@ -12,22 +12,8 @@ systemctl start obmc-console@ttyS0
 ```
 Можно запускать сервер без сервиса с помощью `obmc-console-server`. Для проверки можно использовать `obmc-console-client`
 
-## Добавление в образ
-[Работа с образом](dev_tree.md)
+Для того чтобы Linux работал с консолью, её надо прописать в [DevTree](console).
 
-1)	Добавить в DevTree
-
-```
-&uart1 {
-	//Host Console
-	status = "okay";
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_txd1_default
-		     &pinctrl_rxd1_default>;
-};
-
-```
-Что значат эти магические буковки я не ведаю
 
 Добавить в настройку obmc-console использование ttyS0
 

@@ -43,3 +43,5 @@ do_patch:append () {
 	};
 };
 ```
+
+##[Подключение консоли UART](console)

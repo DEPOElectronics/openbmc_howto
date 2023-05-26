@@ -9,4 +9,6 @@ git commit -s
 Для отправки патча
 
 `git push origin HEAD:refs/for/master` или
-`git push gerrit HEAD:refs/for/master` в случае remote
+`git push gerrit HEAD:refs/for/master` в случае remote 
+
+В случае если понадобились изменения, gerrit ориентируется по `Change-Id:`, которое добавлено в коммент
