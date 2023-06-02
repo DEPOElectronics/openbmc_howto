@@ -6,7 +6,7 @@ VIRTUAL-RUNTIME_obmc-chassis-state-manager ?= "x86-power-control"
 ```
 
 # BMCWeb
-На вход получает следующие сообщения `bmcweb/static/redfish/v1/schema/Resource_v1.xml` и переводдит их в dbus (у кого найдет)
+На вход получает следующие сообщения `bmcweb/static/redfish/v1/schema/Resource_v1.xml` и переводит их в dbus (у кого найдет)
 
 | Действие | Сообщение | Dbus|
 |-|-|-|

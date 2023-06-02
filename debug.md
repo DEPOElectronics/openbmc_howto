@@ -22,3 +22,5 @@ zcat /proc/config.gz | grep
 #include <iostream>
 std::cout<<"Hello World" <<std::endl;
 ```
+# Debug для определенной программы
+Для некоторых программ (например U-boot) для включения отладки для определенного файла нужно в этот файл до всех `#INCLUDE` написать `#define DEBUG 1

@@ -43,4 +43,9 @@
 		};
 	};
 
+&video {
+	status = "okay";
+	memory-region = <&video_engine_memory>;
+};
+
 ```
