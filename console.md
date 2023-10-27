@@ -63,4 +63,4 @@ speed 9600 baud; line = 0;
 intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <undef>; swtch = <undef>; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; flush = ^O; min = 1; time = 0;
 -brkint -imaxbel
 ```
-Задать скорость 115200 для ttyS0 `stty -F /dev/ttyS0`
+Задать скорость 115200 для ttyS0 `stty -F /dev/ttyS0 115200`

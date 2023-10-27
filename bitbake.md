@@ -18,3 +18,16 @@ devtool finish u-boot-fw-utils-aspeed {my layer path}
 ```
 ## Сборка в Docker
 https://github.com/crops/poky-container
+
+## Частые ошибки
+### BB_ENV_EXTRAWHITE
+```
+$ bitbake obmc-phosphor-image
+ERROR: Variable BB_ENV_EXTRAWHITE has been renamed to BB_ENV_PASSTHROUGH_ADDITIONS
+ERROR: Shell environment variable BB_ENV_EXTRAWHITE has been renamed to BB_ENV_PASSTHROUGH_ADDITIONS
+ERROR: Exiting to allow enviroment variables to be corrected
+```
+Надо сделать
+```
+export BB_ENV_PASSTHROUGH_ADDTIONS="$BB_ENV_EXTRAWHITE" && unset BB_ENV_EXTRAWHITE
+```

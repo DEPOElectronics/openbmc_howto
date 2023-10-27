@@ -1,4 +1,4 @@
-# Отладка
+	pr
 [SDK проекта](sdk.md)
 [Сборка](build.md) программы для OpenBmc
 Для очистки программы при сборке в Bitbake `bitabke {program} -c cleanall`
@@ -24,3 +24,11 @@ std::cout<<"Hello World" <<std::endl;
 ```
 # Debug для определенной программы
 Для некоторых программ (например U-boot) для включения отладки для определенного файла нужно в этот файл до всех `#INCLUDE` написать `#define DEBUG 1
+
+#  Сборка отдельной программы Meson
+```
+. .../sdk/environment-setup...
+meson build -Dbuildtype=debugoptimized
+ninja -C build/
+aarch64-openbmc-linux-strip build/
+```

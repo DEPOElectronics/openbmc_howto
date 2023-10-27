@@ -87,3 +87,9 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 В том числе удаление настройки загрузки хоста
 # [Частые проблемы](bugs)
 # [Автоматическое тестирование](test)
+# Список устанавливаемых пакетов
+```
+VIRTUAL-RUNTIME_obmc-inventory-manager = "entity-manager"
+VIRTUAL-RUNTIME_obmc-sensors-hwmon = "dbus-sensors"
+```
+packagegroup

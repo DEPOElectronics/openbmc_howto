@@ -14,3 +14,5 @@ ipmitool user list 1
 ```
 ipmitool user set password <userid> christester
 ```
+
+# Настройка

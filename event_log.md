@@ -12,13 +12,7 @@ xyz.openbmc_project.Logging.Entry.Level.Warning
 
 - Emergency:
 ```
-dbus-send --system --print-reply --type=method_call \
---dest=xyz.openbmc_project.Logging \
-/xyz/openbmc_project/logging \
-xyz.openbmc_project.Logging.Create.Create \
-string:"Emergency error" \
-string:"xyz.openbmc_project.Logging.Entry.Level.Emergency" \
-dict:string:string:"ID","1","TEST","TRUE"
+ncsi
 ```
 - Alert
 
@@ -77,6 +71,15 @@ dict:string:string:"_PID","6","a","b"
 ```
 
 Informational
+```
+dbus-send --system --print-reply --type=method_call \
+--dest=xyz.openbmc_project.Logging \
+/xyz/openbmc_project/logging \
+xyz.openbmc_project.Logging.Create.Create \
+string:"Informational" \
+string:"xyz.openbmc_project.Logging.Entry.Level.Informational" \
+dict:string:string:"_PID","6","a","b"
+```
 
 Debug
 ```

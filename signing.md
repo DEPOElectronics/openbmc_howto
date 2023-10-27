@@ -1,17 +1,17 @@
 # Цифровая подпись образа
 По-умолчанию каждый образ подписывается "открытой" цифровой подписью, "закрытый" ключ которой находится в `meta-phosphor/recipes-phosphor/flash/files/OpenBMC.priv`.
 Подпись будет записываться  в образ если включить флаг `verify_signature` в пакете `phosphor-software-manager`
-Для этого в файл bbappend обавить
+Для этого в файл bbappend добавить
 `PACKAGECONFIG:append = " verify_signature"`. Для примера смотри `meta-yadro/meta-nicole/recipes-phosphor/flash/phosphor-software-manager_%.bbappend`
 Для использования своей подписи нужно
 - Создать её `openssl genpkey -algorithm rsa -out key.pem`
-- Задать в переменной `SIGNING_KEY` путь к этому ключу
+- Задать в переменной `SIGNING_KEY` путь к этому ключу. Почему-то просто указать переменную не получилось, поэтому записал установку в конфигурационный файл и указываю так `bitbake obmc-phosphor-image -r ~/projects/DPC627-A/sign/BMC/sign.conf`
 При сборке образа в образ зашивается публичный ключ, получаемый из приватного.
 - Публичный ключ в образе находится здесь: `/etc/activationdata/{keyname}/publickey`
 - Просмотреть публичный ключ к своему приватному ключу вручную можно так: `openssl pkey -in key.pem -pubout`
 Ключи должны совпасть
 
-Если кроме образа BMC еще предпологается прошивка [хоста](host_firmware_update.md), то файлы прошивки надо прописать в `optional-images`. Для этого в файл .bbappend добавляем
+Если кроме образа BMC еще предполагается прошивка [хоста](host_firmware_update.md), то файлы прошивки надо прописать в `optional-images`. Для этого в файл .bbappend добавляем
 ```
 EXTRA_OEMESON:append = " \
     -Doptional-images='boot.bin' \

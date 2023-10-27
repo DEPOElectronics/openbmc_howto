@@ -6,6 +6,12 @@ fw_setenv bootargs $(fw_printenv -n bootargs) mem.devmem=y && systemctl reboot
 ```
 Для чтения используется программа devmem
 ```
-# devmem  0x1e6e207c
-0x04030303
+# devmem 0x1E6E2070
+0xF131D24E
 ```
+Запись 
+```
+devmem 0x1E6E207C 32 0x100000
+```
+
+https://shenki.github.io/openbmc-dev-mem/
