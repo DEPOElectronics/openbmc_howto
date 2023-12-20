@@ -49,3 +49,5 @@ i2c-9	i2c       	1e78a380.i2c-bus                	I2C adapter
 echo -n "1e78a140.i2c-bus" > /sys/bus/platform/drivers/aspeed-i2c-bus/unbind
 echo -n "1e78a1c0.i2c-bus" > /sys/bus/platform/drivers/aspeed-i2c-bus/bind
 ```
+
+# [Работа с DIMM SPD](./mem)
