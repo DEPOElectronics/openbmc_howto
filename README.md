@@ -93,3 +93,4 @@ VIRTUAL-RUNTIME_obmc-inventory-manager = "entity-manager"
 VIRTUAL-RUNTIME_obmc-sensors-hwmon = "dbus-sensors"
 ```
 packagegroup
+# [adc](adc.md)

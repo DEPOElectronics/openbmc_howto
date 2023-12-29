@@ -165,7 +165,7 @@ d 225.75
 Для остановки сервиса:
 `systemctl stop xyz.openbmc_project.EntityManager.service`
 
-# Изменение кофигурации
+# Изменение конфигурации
 При изменении конфигурационного файла, для просмотра изменений необходимо
 1) Удалить файл /var/configuration/system.json
 2) Перезапустить сервис entitymanager
