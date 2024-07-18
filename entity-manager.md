@@ -170,7 +170,7 @@ d 225.75
 1) Удалить файл /var/configuration/system.json
 2) Перезапустить сервис entitymanager
 ```
-rm -f /var/configuration/system.json &&systemctl restart xyz.openbmc_project.EntityManager.service
+rm -f /var/configuration/system.json && systemctl restart xyz.openbmc_project.EntityManager.service
 ```
 	
 

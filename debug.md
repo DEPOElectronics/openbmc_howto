@@ -32,3 +32,10 @@ meson build -Dbuildtype=debugoptimized
 ninja -C build/
 aarch64-openbmc-linux-strip build/
 ```
+# Просмотр логов
+Если лог программы сделан через systemd `log<level::ERR>(...` то дополнительную информацию можно посмотреть через journalctl
+```
+journalctl -f -o verbose -u unit.service
+```
+# Инструмент отладки
+https://github.com/amboar/culvert
