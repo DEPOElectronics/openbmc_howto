@@ -1,4 +1,3 @@
-	pr
 [SDK проекта](sdk.md)
 [Сборка](build.md) программы для OpenBmc
 Для очистки программы при сборке в Bitbake `bitabke {program} -c cleanall`
@@ -13,11 +12,13 @@ zcat /proc/config.gz | grep
 
 ## Создание патча
 см. [Создать патч](bitbake.md)
+## Отправка патча
+В общий репозиторий отправка осуществляется через [Gerrit](gerrit)
 
 # Просмотр исходников
 Зачастую исходники удобно смотреть через https://grok.openbmc.org
 
-# Пример
+# Вывод отладочной инфы
 ```
 #include <iostream>
 std::cout<<"Hello World" <<std::endl;

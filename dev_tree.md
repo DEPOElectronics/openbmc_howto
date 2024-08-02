@@ -44,4 +44,19 @@ do_patch:append () {
 };
 ```
 
-##[Подключение консоли UART](console)
+## [Подключение консоли UART](console)
+
+
+# Удалить eth1
+
+Из DevTree удалить блок
+
+```
+&mac1 {
+       status = "okay";
+
+       pinctrl-names = "default";
+       pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
+};
+
+```
