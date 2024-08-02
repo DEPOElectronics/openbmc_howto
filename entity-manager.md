@@ -10,35 +10,6 @@ busctl tree --no-pager xyz.openbmc_project.FruDevice
   `-/xyz/openbmc_project
     `-/xyz/openbmc_project/FruDevice
       |-/xyz/openbmc_project/FruDevice/2_100
-      |-/xyz/openbmc_project/FruDevice/2_101
-      |-/xyz/openbmc_project/FruDevice/2_102
-      |-/xyz/openbmc_project/FruDevice/2_103
-      |-/xyz/openbmc_project/FruDevice/2_111
-      |-/xyz/openbmc_project/FruDevice/2_116
-      |-/xyz/openbmc_project/FruDevice/2_117
-      |-/xyz/openbmc_project/FruDevice/2_118
-      |-/xyz/openbmc_project/FruDevice/2_119
-      |-/xyz/openbmc_project/FruDevice/2_20
-      |-/xyz/openbmc_project/FruDevice/2_21
-      |-/xyz/openbmc_project/FruDevice/2_22
-      |-/xyz/openbmc_project/FruDevice/2_23
-      |-/xyz/openbmc_project/FruDevice/2_36
-      |-/xyz/openbmc_project/FruDevice/2_37
-      |-/xyz/openbmc_project/FruDevice/2_38
-      |-/xyz/openbmc_project/FruDevice/2_39
-      |-/xyz/openbmc_project/FruDevice/2_52
-      |-/xyz/openbmc_project/FruDevice/2_53
-      |-/xyz/openbmc_project/FruDevice/2_54
-      |-/xyz/openbmc_project/FruDevice/2_55
-      |-/xyz/openbmc_project/FruDevice/2_68
-      |-/xyz/openbmc_project/FruDevice/2_69
-      |-/xyz/openbmc_project/FruDevice/2_70
-      |-/xyz/openbmc_project/FruDevice/2_71
-      |-/xyz/openbmc_project/FruDevice/2_80
-      |-/xyz/openbmc_project/FruDevice/2_84
-      |-/xyz/openbmc_project/FruDevice/2_85
-      |-/xyz/openbmc_project/FruDevice/2_86
-      |-/xyz/openbmc_project/FruDevice/2_87
       |-/xyz/openbmc_project/FruDevice/2_89
       |-/xyz/openbmc_project/FruDevice/FSP800_20FM
       |-/xyz/openbmc_project/FruDevice/FSP800_50FS
