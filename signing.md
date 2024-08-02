@@ -33,3 +33,12 @@ busctl set-property xyz.openbmc_project.Software.BMC.Updater /xyz/openbmc_projec
 busctl get-property xyz.openbmc_project.Software.BMC.Updater /xyz/openbmc_project/software xyz.openbmc_project.Control.FieldMode FieldModeEnabled
 ```
 Для того чтобы этот режим был выставлен автоматом, надо в переменную окружения u-boot добавить `fieldmode=true`.
+# Сборка с использованием ключа
+Для сборки образа со своим ключом я создаю конфигурационный файл с содержимым
+```
+SIGNING_KEY = "[ПУТЬ К КЛЮЧУ]"
+```
+и при сборке указываю что этот файл надо использовать
+```
+bitbake obmc-phosphor-image -r [ПУТЬ К КОНФИГУ]
+```
