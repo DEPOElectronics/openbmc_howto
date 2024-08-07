@@ -8,6 +8,11 @@ fw_setenv ethaddr "AA:AA:AA:AA:AA:AA"
 ```
 fw_printenv
 ```
+## Настройка сети
+Иногда при проблемах с сетью надо удалить настройки
+```
+rm /etc/systemd/network/00-bmc-eth0.network
+```
 
 # Установка адреса из DevTree
 Если mac адрес записан в eeprom, то

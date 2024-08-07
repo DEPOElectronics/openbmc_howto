@@ -68,3 +68,4 @@ VIRTUAL-RUNTIME_obmc-sensors-hwmon = "dbus-sensors"
 packagegroup
 # [АЦП](adc.md)
 Запись консоли хоста
+# [Работа с SPD ОЗУ](DIMM)
