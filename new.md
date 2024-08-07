@@ -1,6 +1,5 @@
 Создание образа под свою плату:
-Я использовал в качестве основы слой из ветки minimum
-
+Я использовал в качестве основы слой ast2500-min из ветки [minimum](http://gitlab-niokr.depo.local/niokr/program/bmc/openbmc-sample/-/tree/minimum/meta-sample/meta-ast2500-min)
 1.	Скопировать  meta-sample/ast2500-min
 2.	сonf
 	1.	`bblayers.conf.sample` переименовать слой

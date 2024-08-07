@@ -38,4 +38,4 @@ hexdump -C spd_full.bin > spd_full.hex
 decode-dimms -x spd_full.hex
 ```
 # Manufacturer ID
-Идектификатор производителя записан в стандарте JEDEC в документе JEP106
+Идектификатор производителя записан в стандарте JEDEC в документе JEP106. Для DEPO - `0x89 0x19`

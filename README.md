@@ -55,6 +55,7 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [Обновление MAC адреса](MAC)
 # [Цифровая подпись образа](signing.md)
 # [BitBake](bitbake.md) 
+# [Включение шины LPC](LPC.md)
 # [Настройки](phosphor-settings)
 В том числе удаление настройки загрузки хоста
 # [Частые проблемы](bugs)
