@@ -9,13 +9,7 @@
 Указать значение переменной через переменные окружения не получилось, поэтому я создал отдельный .conf файл и указываю его как POSTFILE Bitbake. Есть еще PREFILE см. `bitbake help`
 `bitbake obmc-phosphor-image -R ~/projects/sign/sign.conf`
 ## Создать патч
-```
-devtool modify u-boot-fw-utils-aspeed
-# fix include/configs/ast-common.h
-git commit -am 'add fieldmode=true'
-devtool update-recipe u-boot-foot-utils-aspeed -a {my layer path}
-devtool finish u-boot-fw-utils-aspeed {my layer path}
-```
+Для создания патчей используется инструмент [devtool](devtool)
 ## Сборка в Docker
 https://github.com/crops/poky-container
 

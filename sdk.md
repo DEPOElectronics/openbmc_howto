@@ -19,5 +19,5 @@ bitbake -c populate_sdk obmc-phosphor-image
 . sdk/environment-setup-armv5e-openbmc-linux-gnueabi
 ```
 
-Для просмотра кода удобно использовать
+Для просмотра кода иногда удобно использовать
 https://grok.openbmc.org/

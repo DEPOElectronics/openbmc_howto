@@ -12,3 +12,4 @@ KERNEL_MODULE_AUTOLOAD += "post_disp"
 ```
 PACKAGECONFIG:append = " kmod"
 ```
+По умолчанию модули располагаются   по пути: `usr/lib/modules/{kernel}/updates/`
