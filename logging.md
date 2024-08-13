@@ -91,3 +91,6 @@ string:"Debug string" \
 string:"xyz.openbmc_project.Logging.Entry.Level.Debug" \
 dict:string:string:"TEST","TRUE","DEBUG","TRUE"
 ```
+## Включить лог по dbus
+
+Добавить `-Dredfish-dbus-log=enabled` в ``EXTRA_OEMESON:append` в вашем слое `bmcweb_%.bbappend``

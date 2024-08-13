@@ -42,7 +42,7 @@
 ```
 
 ## Добавление GPIO кнопки 
-
+На данный момент я использую не создание кнопок в дереве ядра, а программу [phosphor-gpio-monitor](phosphor-gpio-monitor)
 ### Добавление кнопки в DeviceTree
 1.	Добавить `#include <dt-bindings/gpio/aspeed-gpio.h>` в DevTree
 2.	Добавить раздел gpio-keys в секцию `/ {..};`
@@ -63,10 +63,11 @@ gpio-keys {
 ```
 После того как кнопка добавлена в дерево устройств, она начинает писать информацию по адресу `/dev/input/by-path/platform-gpio-keys-event`.
 Почему-то начались проблемы с platform-gpio-keys-event. И **[phosphor-gpio-monitor](https://github.com/openbmc/phosphor-gpio-monitor)**  в режиме работы с отдельными сервисами. В итоге без добавления gpio-keys секции. Использую [phosphor-gpio-monitor](phosphor-gpio-monitor) в multi режиме
-
 ## Ручное управление GPIO
-При необходимости вручную управлять gpio, можно воспользоваться sysfs. Сначала нужно найти номер пина. Для этого нужно к номеру базы добавить номер линии.
-
+### Основной способ
+Для ручного управления GPIO используется [libgpiod](https://www.kernel.org/pub/software/libs/libgpiod/) в том числе инструменты gpioinfo, gpioset, gpioget
+### SysFS
+Так же есть поддержка устаревшего метода SysFS: cначала нужно найти номер пина. Для этого нужно к номеру базы добавить номер линии.
 ```
 # ls /sys/class/gpio/  
 export       gpiochip792  unexport
@@ -91,31 +92,3 @@ echo out > /sys/class/gpio/gpio1000/direction
 
 Задать значение `echo 1 > /sys/class/gpio/gpio1000/value`
 Считать значение `cat /sys/class/gpio/gpio1000/value`
-
-## Управление через Windows
-Либо установка сторонеей программы типа putty, либо работа через консоль. В самом простом случае - отпарвка
-```
-mode COM1 BAUD=9600 PARITY=n DATA=8
-echo 123 > COM1
-```
-
-Например, если установлен PowerShell, то можно воспользоваться его возможностями.
-
-Запись:
-
-```csharp
-PS> [System.IO.Ports.SerialPort]::getportnames()
-COM3
-PS> $port= new-Object System.IO.Ports.SerialPort COM3,9600,None,8,one
-PS> $port.open()
-PS> $port.WriteLine("Hello world")
-PS> $port.Close()
-```
-
-Чтение:
-
-```csharp
-PS> $port= new-Object System.IO.Ports.SerialPort COM3,9600,None,8,one
-PS> $port.Open()
-PS> $port.ReadLine()
-```

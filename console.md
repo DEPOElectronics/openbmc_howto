@@ -64,3 +64,30 @@ intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <un
 -brkint -imaxbel
 ```
 Задать скорость 115200 для ttyS0 `stty -F /dev/ttyS0 115200`
+## Управление через Windows
+Либо установка стороней программы типа putty, либо работа через консоль. В самом простом случае - отпарвка
+```
+mode COM1 BAUD=9600 PARITY=n DATA=8
+echo 123 > COM1
+```
+
+Например, если установлен PowerShell, то можно воспользоваться его возможностями.
+
+Запись:
+
+```csharp
+PS> [System.IO.Ports.SerialPort]::getportnames()
+COM3
+PS> $port= new-Object System.IO.Ports.SerialPort COM3,9600,None,8,one
+PS> $port.open()
+PS> $port.WriteLine("Hello world")
+PS> $port.Close()
+```
+
+Чтение:
+
+```csharp
+PS> $port= new-Object System.IO.Ports.SerialPort COM3,9600,None,8,one
+PS> $port.Open()
+PS> $port.ReadLine()
+```
