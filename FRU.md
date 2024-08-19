@@ -34,3 +34,14 @@ echo "3f80: $MAC0" | xxd -r - $FRUNAME
 echo "3f88: $MAC1" | xxd -r - $FRUNAME
 echo "fru file: "$FRUNAME
 ```
+# Чтение FRU
+Для работы с fru в BMC используется программа fru-device, которая является частью пакета [entity-manager](entity-manager). При запуске порграмма сканирует все шины, которые не указаны в blocklist.json и *не являются Mux* и ищет на них устройства eeprom. Найденые устройства и декодированную FRU информацию публикует в DBUS
+```
+root@dpc741-zx:~# busctl tree xyz.openbmc_project.FruDevice
+`- /xyz
+  `- /xyz/openbmc_project
+    `- /xyz/openbmc_project/FruDevice
+      |- /xyz/openbmc_project/FruDevice/6_98
+      `- /xyz/openbmc_project/FruDevice/D71
+
+```
