@@ -40,3 +40,4 @@ journalctl -f -o verbose -u unit.service
 ```
 # Инструмент отладки
 https://github.com/amboar/culvert
+# Отладка [phy](phy)
