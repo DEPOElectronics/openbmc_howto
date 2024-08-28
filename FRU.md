@@ -45,3 +45,5 @@ root@dpc741-zx:~# busctl tree xyz.openbmc_project.FruDevice
       `- /xyz/openbmc_project/FruDevice/D71
 
 ```
+## Тестовая eeprom
+Тестовую eeprom можно сделать без физического устройства, просто расположив файл по адресу `/etc/fru/baseboard.fru.bin`
