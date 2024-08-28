@@ -61,3 +61,4 @@ packagegroup
 # [АЦП](adc.md)
 Запись консоли хоста
 # [Работа с SPD ОЗУ](DIMM)
+# [Web-интерфейс](webui-vue)
