@@ -65,7 +65,7 @@ intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = <undef>; eol2 = <un
 ```
 Задать скорость 115200 для ttyS0 `stty -F /dev/ttyS0 115200`
 ## Управление через Windows
-Либо установка стороней программы типа putty, либо работа через консоль. В самом простом случае - отпарвка
+Либо установка сторонней программы типа putty, либо работа через консоль. В самом простом случае - отправка
 ```
 mode COM1 BAUD=9600 PARITY=n DATA=8
 echo 123 > COM1
@@ -75,7 +75,7 @@ echo 123 > COM1
 
 Запись:
 
-```csharp
+```powershell
 PS> [System.IO.Ports.SerialPort]::getportnames()
 COM3
 PS> $port= new-Object System.IO.Ports.SerialPort COM3,9600,None,8,one
@@ -86,8 +86,15 @@ PS> $port.Close()
 
 Чтение:
 
-```csharp
+```powershell
 PS> $port= new-Object System.IO.Ports.SerialPort COM3,9600,None,8,one
 PS> $port.Open()
 PS> $port.ReadLine()
+```
+## VUART & MUX
+Если BMC управляет шиной, то можно воспользоваться VUARTOM, но хост не может им управлять. Управлять хост может UART1 и UART2, но к ним напрямую нет доступа из BMC. Для работы с ними можно воспользоваться аппаратным MUXом. см. uart_route
+По-умолчанию все UART направлены на физические интерфейсы
+## Просмотр 
+```bash
+cat /proc/tty/driver/serial
 ```

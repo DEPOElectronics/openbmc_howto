@@ -1,7 +1,7 @@
 # entity-manager
 Состоит из нескольких частей
-*  fru-device сканирует шину i2c, обнаруживает устройства у которых есть fru информация и заносит ее в dbus. Посмотреть инфу можно с помощью команды 
-* 2 часть берет сопостовляет конфигурационные файлы с найденными fru устройствами и в случае совпадения, создает устройства в dbus 
+*  fru-device сканирует шину i2c, обнаруживает устройства у которых есть fru информация и заносит ее в dbus. Посмотреть информацию можно с помощью команды 
+* 2 часть берет сопоставляет конфигурационные файлы с найденными fru устройствами и в случае совпадения, создает устройства в dbus 
 
 Просмотр обнаруженных fru
 ```
@@ -9,14 +9,10 @@ busctl tree --no-pager xyz.openbmc_project.FruDevice
 `-/xyz
   `-/xyz/openbmc_project
     `-/xyz/openbmc_project/FruDevice
-      |-/xyz/openbmc_project/FruDevice/2_100
-      |-/xyz/openbmc_project/FruDevice/2_89
-      |-/xyz/openbmc_project/FruDevice/FSP800_20FM
       |-/xyz/openbmc_project/FruDevice/FSP800_50FS
       `-/xyz/openbmc_project/FruDevice/G1136_1300WNA_
 ```
-Что за устройства 2_?? я не знаю, наверное стоит разобраться с черным списком
-
+Чтобы не сканировать лишние линии, их можно прописать в черный список
 Просмотр информации об устройстве
 ```
 ~# busctl introspect --no-pager xyz.openbmc_project.FruDevice \

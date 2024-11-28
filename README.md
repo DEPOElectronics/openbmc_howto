@@ -22,8 +22,8 @@ RDEPENDS:${PN}-inventory:append:dazn = " id-button"
 # [I2C](i2c.md), [I3C](i3c)
 
 # [kcs](kcs)
-# [IKVM](ikvm.md)
-# [IPMI](IPMI)
+# [IKVM](kvm.md)
+# [ipmi](ipmi.md)
 # [Serial Over Lan SOL](sol.md)
 
 # WEB

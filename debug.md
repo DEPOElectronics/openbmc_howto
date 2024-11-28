@@ -26,6 +26,14 @@ std::cout<<"Hello World" <<std::endl;
 # Debug для определенной программы
 Для некоторых программ (например U-boot) для включения отладки для определенного файла нужно в этот файл до всех `#INCLUDE` написать `#define DEBUG 1
 
+## BMCWeb
+Для включения дебажного вывода в BMCWeb добавьте в .bbappend
+```
+EXTRA_OEMESON:append = " \
+     -Dbmcweb-logging=enabled \
+     "
+```
+
 #  Сборка отдельной программы Meson
 ```
 . .../sdk/environment-setup...
